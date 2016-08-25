@@ -1,2 +1,6 @@
 ---
-# vars file for ansible-role-molecule
+# URL to download the Molecule Gemfile from
+molecule_gem_file_url: "https://raw.githubusercontent.com/metacloud/molecule/{{ molecule_version }}/Gemfile"
+
+# File name to save the Molecule Gemfile as
+molecule_gem_file_name: "molecule-{{ molecule_version }}-Gemfile"

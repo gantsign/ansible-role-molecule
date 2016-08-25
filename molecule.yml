@@ -1,16 +1,14 @@
 ---
 ansible:
-  playbook: playbook.yml
+  playbook: tests/test.yml
 
 docker:
   containers:
   - name: ansible-role-molecule-01
-    ansible_groups:
-      - group1
     image: ubuntu
-    image_version: latest
-  - name: ansible-role-molecule-02
-    ansible_groups:
-      - group2
-    image: ubuntu
-    image_version: latest
+    image_version: '16.04'
+    volume_mounts:
+      - '/var/run/docker.sock:/var/run/docker.sock'
+
+testinfra:
+  hosts: ansible-role-molecule-01

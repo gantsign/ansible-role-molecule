@@ -1,2 +1,6 @@
 ---
-# defaults file for ansible-role-molecule
+# The version of Molecule to install
+molecule_version: '1.9.1'
+
+# Directory to store files downloaded for Molecule installation
+molecule_download_dir: "{{ x_ansible_download_dir | default(ansible_env.HOME + '/.ansible/tmp/downloads') }}"
