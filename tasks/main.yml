@@ -12,15 +12,15 @@
     state: present
     extra_args: '--upgrade'
 
-# query available Molecule versions and split one per line
-- name: query available Molecule versions
+# Query available Molecule versions and split one per line
+- name: query available molecule versions
   shell: "pip install molecule== &> >(sed -r 's/[^0-9\\.]*([0-9dev\\.]*)[^0-9\\.]*/\\1\\n/g' | sed '/^$/d') || $(exit 0)"
   args:
     executable: /bin/bash
   register: available_molecule_versions
   changed_when: no
 
-- name: assert Molecule version available
+- name: assert molecule version available
   assert:
     that:
       - "molecule_version in available_molecule_versions.stdout_lines"
@@ -46,13 +46,13 @@
     - ruby
     - bundler
 
-- name: add Ansible ppa
+- name: add ansible ppa
   become: yes
   apt_repository:
     repo: 'ppa:ansible/ansible'
     state: present
 
-- name: install Ansible
+- name: install ansible
   become: yes
   apt:
     name: ansible
@@ -63,7 +63,7 @@
     path: "{{ molecule_download_dir }}"
     state: directory
 
-- name: download Gemfile
+- name: download gemfile
   get_url:
     url: "{{ molecule_gem_file_url }}"
     dest: "{{ molecule_download_dir }}/{{ molecule_gem_file_name }}"
@@ -74,7 +74,7 @@
   register: gem_install
   changed_when: "'Installing' in gem_install.stdout"
 
-- name: install Molecule
+- name: install molecule
   become: yes
   pip:
     name: molecule
