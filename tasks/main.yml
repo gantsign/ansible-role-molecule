@@ -31,6 +31,9 @@
     name: "{{ item }}"
     state: present
   with_items:
+    - libffi-dev
+    - libssl-dev
+    - python-dev
     - git
     - python-openssl
     - python-yaml
@@ -42,7 +45,18 @@
     - python-pkg-resources
     - ruby
     - bundler
-    - ansible
+
+- name: add Ansible ppa
+  become: yes
+  apt_repository:
+    repo: 'ppa:ansible/ansible'
+    state: present
+
+- name: install Ansible
+  become: yes
+  apt:
+    name: ansible
+    state: present
 
 - name: create download directory
   file:
