@@ -2,6 +2,7 @@ Ansible Role: Molecule
 ======================
 
 [![Build Status](https://travis-ci.org/gantsign/ansible-role-molecule.svg?branch=master)](https://travis-ci.org/gantsign/ansible-role-molecule)
+[![Ansible Galaxy](https://img.shields.io/badge/ansible--galaxy-gantsign.molecule-blue.svg)](https://galaxy.ansible.com/gantsign/molecule)
 
 Ansible role for installing the [Molecule](https://molecule.readthedocs.io) test tool for Ansible.
 
