@@ -14,6 +14,3 @@ docker:
     image_version: '16.04'
     volume_mounts:
       - '/var/run/docker.sock:/var/run/docker.sock'
-
-testinfra:
-  hosts: 'ansible-role-molecule-wily,ansible-role-molecule-xenial'
