@@ -74,6 +74,15 @@
   register: gem_install
   changed_when: "'Installing' in gem_install.stdout"
 
+# Need to update `wheel` or ansible-lint will get installed without the
+# execute bit set (https://bitbucket.org/pypa/wheel/issues/154).
+- name: install wheel
+  become: yes
+  pip:
+    name: wheel
+    state: present
+    extra_args: '--upgrade'
+
 - name: install molecule
   become: yes
   pip:
