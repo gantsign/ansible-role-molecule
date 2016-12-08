@@ -8,27 +8,27 @@
   post_tasks:
   - name: create download directory
     file:
-      path: "{{ remote_tmp }}"
+      path: '{{ remote_tmp }}'
       state: directory
 
   - name: download docker
     get_url:
       url: 'https://get.docker.com/builds/Linux/x86_64/docker-1.12.1.tgz'
-      dest: "{{ remote_tmp }}/docker.tgz"
+      dest: '{{ remote_tmp }}/docker.tgz'
       sha256sum: '05ceec7fd937e1416e5dce12b0b6e1c655907d349d52574319a1e875077ccb79'
 
   - name: unpack docker
     unarchive:
-      src: "{{ remote_tmp }}/docker.tgz"
+      src: '{{ remote_tmp }}/docker.tgz'
       copy: no
-      dest: "{{ remote_tmp }}"
+      dest: '{{ remote_tmp }}'
 
   - name: install docker
     become: yes
     copy:
-      src: "{{ remote_tmp }}/docker/{{ item }}"
+      src: '{{ remote_tmp }}/docker/{{ item }}'
       remote_src: yes
-      dest: "/usr/local/bin/{{ item }}"
+      dest: '/usr/local/bin/{{ item }}'
       owner: root
       group: root
       mode: 'u=rwx,go=rx'
