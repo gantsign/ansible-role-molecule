@@ -1,10 +1,4 @@
 ---
-- name: load version vars
-  with_first_found:
-    - "../vars/versions/{{ molecule_version }}.yml"
-    - ../vars/versions/default.yml
-  include_vars: "{{ item }}"
-
 - name: install python-pip
   become: yes
   apt:
@@ -70,17 +64,6 @@
     path: "{{ molecule_download_dir }}"
     state: directory
 
-- name: download gemfile
-  get_url:
-    url: "{{ molecule_gem_file_url }}"
-    dest: "{{ molecule_download_dir }}/{{ molecule_gem_file_name }}"
-
-- name: install gem dependencies
-  become: yes
-  command: "bundle install --gemfile={{ molecule_download_dir }}/{{ molecule_gem_file_name }}"
-  register: gem_install
-  changed_when: "'Installing' in gem_install.stdout"
-
 # Need to update `wheel` or ansible-lint will get installed without the
 # execute bit set (https://bitbucket.org/pypa/wheel/issues/154).
 - name: install wheel
@@ -89,6 +72,12 @@
     name: wheel
     state: present
     extra_args: '--upgrade'
+
+- name: install docker-py
+  become: yes
+  pip:
+    name: docker-py
+    state: present
 
 - name: install molecule
   become: yes
