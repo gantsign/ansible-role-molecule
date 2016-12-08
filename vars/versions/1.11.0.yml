@@ -1,3 +1,0 @@
----
-# URL to download the Molecule Gemfile from
-molecule_gem_file_url: "https://raw.githubusercontent.com/metacloud/molecule/1.11/Gemfile"
