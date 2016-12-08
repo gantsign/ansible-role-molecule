@@ -24,12 +24,12 @@
 - name: assert molecule version available
   assert:
     that:
-      - "molecule_version in available_molecule_versions.stdout_lines"
+      - 'molecule_version in available_molecule_versions.stdout_lines'
 
 - name: install apt dependencies
   become: yes
   apt:
-    name: "{{ item }}"
+    name: '{{ item }}'
     state: present
   with_items:
     - libffi-dev
@@ -61,7 +61,7 @@
 
 - name: create download directory
   file:
-    path: "{{ molecule_download_dir }}"
+    path: '{{ molecule_download_dir }}'
     state: directory
 
 # Need to update `wheel` or ansible-lint will get installed without the
@@ -83,5 +83,5 @@
   become: yes
   pip:
     name: molecule
-    version: "{{ molecule_version }}"
+    version: '{{ molecule_version }}'
     state: present
