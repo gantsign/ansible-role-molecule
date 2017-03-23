@@ -73,10 +73,10 @@
     state: present
     extra_args: '--upgrade'
 
-- name: install docker-py
+- name: install python docker library
   become: yes
   pip:
-    name: docker-py
+    name: docker
     state: present
 
 - name: install molecule
