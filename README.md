@@ -30,7 +30,7 @@ are shown below):
 
 ```yaml
 # The version of Molecule to install
-molecule_version: '1.16.0'
+molecule_version: '1.22.0'
 
 # Directory to store files downloaded for Molecule installation
 molecule_download_dir: "{{ x_ansible_download_dir | default(ansible_env.HOME + '/.ansible/tmp/downloads') }}"
