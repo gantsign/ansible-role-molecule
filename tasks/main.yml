@@ -1,9 +1,12 @@
 ---
-- name: install python-pip
+- name: install dependencies
   become: yes
   apt:
-    name: python-pip
+    name: '{{ item }}'
     state: present
+  with_items:
+    - python-pip
+    - libssl-dev
 
 # Query available Molecule versions and split one per line
 - name: query available molecule versions
@@ -18,27 +21,6 @@
   assert:
     that:
       - 'molecule_version in available_molecule_versions.stdout_lines'
-
-- name: install apt dependencies
-  become: yes
-  apt:
-    name: '{{ item }}'
-    state: present
-  with_items:
-    - libffi-dev
-    - libssl-dev
-    - python-dev
-    - git
-    - python-openssl
-    - python-yaml
-    - python-jinja2
-    - python-httplib2
-    - python-keyczar
-    - python-paramiko
-    - python-setuptools
-    - python-pkg-resources
-    - ruby
-    - bundler
 
 - name: add ansible ppa
   become: yes
