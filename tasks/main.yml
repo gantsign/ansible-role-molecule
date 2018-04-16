@@ -57,6 +57,14 @@
     version: '2.7.0'
     state: present
 
+- name: downgrade pip (pip 10 workaround)
+  become: yes
+  pip:
+    name: pip
+    # Workaround pip 10 issue (see https://github.com/pypa/pip/issues/4805)
+    version: '9.0.3'
+    state: present
+
 - name: install molecule
   become: yes
   pip:
