@@ -48,9 +48,6 @@
   become: yes
   pip:
     name: docker
-    # 2018-04-16
-    # Limit version as workaround for: https://github.com/ansible/ansible/issues/35612
-    version: '2.7.0'
     state: present
 
 - name: downgrade pip (pip 10 workaround)

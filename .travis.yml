@@ -30,8 +30,7 @@ install:
   - pip install "ansible~=$ANSIBLE_VERSION"
 
   # Install Python API for Docker (required by Molecule Docker driver)
-  # Limit version as workaround for: https://github.com/ansible/ansible/issues/35612
-  - pip install 'docker<3.0'
+  - pip install docker
 
   # Install Molecule
   - pip install 'molecule==2.16.0'
