@@ -27,6 +27,7 @@
   apt_repository:
     repo: 'ppa:ansible/ansible'
     state: present
+    codename: '{{ ansible_distribution_release }}'
 
 - name: install ansible
   become: yes
