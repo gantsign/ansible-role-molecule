@@ -1,6 +1,7 @@
 ---
 galaxy_info:
   author: John Freeman
+  role_name: molecule
   description: Role for installing the Molecule test tool for Ansible.
   company: GantSign Ltd.
   license: MIT
