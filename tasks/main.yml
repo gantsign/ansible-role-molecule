@@ -35,11 +35,6 @@
     name: ansible
     state: present
 
-- name: create download directory
-  file:
-    path: '{{ molecule_download_dir }}'
-    state: directory
-
 # Need to update `wheel` or ansible-lint will get installed without the
 # execute bit set (https://bitbucket.org/pypa/wheel/issues/154).
 - name: install wheel

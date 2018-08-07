@@ -28,9 +28,6 @@ are shown below):
 ```yaml
 # The version of Molecule to install
 molecule_version: '2.16.0'
-
-# Directory to store files downloaded for Molecule installation
-molecule_download_dir: "{{ x_ansible_download_dir | default(ansible_env.HOME + '/.ansible/tmp/downloads') }}"
 ```
 
 Example Playbook
