@@ -13,4 +13,5 @@ galaxy_info:
   galaxy_tags:
     - molecule
     - ansible
+    - development
 dependencies: []
