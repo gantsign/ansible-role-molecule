@@ -27,7 +27,7 @@ are shown below):
 
 ```yaml
 # The version of Molecule to install
-molecule_version: '2.16.0'
+molecule_version: '2.17.0'
 ```
 
 Example Playbook
