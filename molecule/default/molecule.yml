@@ -9,8 +9,10 @@ lint:
   name: yamllint
 
 platforms:
-  - name: ansible-role-molecule-max
+  - name: ansible-role-molecule-min
     image: ubuntu:16.04
+  - name: ansible-role-molecule-max
+    image: ubuntu:18.04
 
 provisioner:
   name: ansible
