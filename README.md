@@ -10,9 +10,7 @@ Ansible role for installing the [Molecule](https://molecule.readthedocs.io) test
 Requirements
 ------------
 
-* Ansible
-
-    * Minimum 2.4
+* Ansible >= 2.5
 
 * Ubuntu
 
