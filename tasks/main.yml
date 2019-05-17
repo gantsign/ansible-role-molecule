@@ -9,7 +9,9 @@
 
 # Query available Molecule versions and split one per line
 - name: query available molecule versions
-  shell: "pip install molecule== &> >(sed -r 's/[^0-9\\.]*([0-9dev\\.]*)[^0-9\\.]*/\\1\\n/g' | sed '/^$/d') || $(exit 0)"
+  shell: |
+    set -euo pipefail
+    pip install molecule== &> >(sed -r 's/[^0-9\\.]*([0-9dev\\.]*)[^0-9\\.]*/\\1\\n/g' | sed '/^$/d') || $(exit 0)
   args:
     executable: /bin/bash
   register: available_molecule_versions
