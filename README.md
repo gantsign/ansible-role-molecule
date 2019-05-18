@@ -7,6 +7,9 @@ Ansible Role: Molecule
 
 Ansible role for installing the [Molecule](https://molecule.readthedocs.io) test tool for Ansible.
 
+**Deprecation notice:** this role is no longer maintained, please use
+[Molecule Wrapper](https://github.com/gantsign/molecule-wrapper) instead.
+
 Requirements
 ------------
 
